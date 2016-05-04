@@ -1,13 +1,13 @@
 {
-  "name": "react-multistep",
-  "version": "2.0.0",
-  "description": "Responsive ReactJS multistep form component",
+  "name": "react-minimal-google-maps",
+  "version": "0.0.3",
+  "description": "React minimal google maps component",
   "main": "src/index.js",
   "license": "MIT",
   "author": {
     "name": "@Kadash",
     "email": "arturkudel@gmail.com",
-    "url": "https://github.com/https://github.com/kaadash"
+    "url": "https://github.com/kaadash"
   },
   "dependencies": {
     "babel-preset-react": "^6.5.0",
@@ -24,11 +24,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/https://github.com/kaadash/react-multistep.git"
+    "url": "https://github.com/kaadash/react-minimal-google-maps"
   },
-  "homepage": "https://github.com/kaadash",
+  "homepage": "https://github.com/kaadash/react-minimal-google-maps",
   "bugs": {
-    "url": "https://github.com/react-multistep/issues"
+    "url": "https://github.com/react-minimal-google-maps/issues"
   },
   "devDependencies": {
     "babel": "^6.3.26",

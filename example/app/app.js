@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      address: "",
+      API: {},
       markers: [
         {
           position: {lat: -34.397, lng: 150.644},
@@ -24,28 +24,44 @@ class App extends Component {
     };
 
     this.centerToAddress = this.centerToAddress.bind(this);
-    this.addMarker = this.addMarker.bind(this);
+    this.handleLoadUpdate = this.handleLoadUpdate.bind(this);
   }
   
-  centerToAddress(){
-    this.setState({
-      address: this.searchCityInput.test.value
-    });
+  centerToAddress(event){
+    // Be sure that API loaded properly
+    if(this.state.API.isLoaded && ((event.which === 13) || typeof event === 'undefined')) {
+      // Simply use object from Google Maps API
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'address': this.refs.searchCityInput.value}, (results, status) => {
+        console.log(this.state.address);
+        if (status === google.maps.GeocoderStatus.OK) {
+          this.state.API.map.setCenter(results[0].geometry.location);
+        } else {
+          console.warn('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
   }
-  
-  addMarker(){
+
+
+  handleLoadUpdate(result){
     this.setState({
-      address: this.searchCityInput.test.value
+      API: {
+        isLoaded: result.isLoaded,
+        map: result.map
+      }
     });
+    // we can load some objects from google API here
+    console.log("API loaded - parent component");
   }
+
   render() {
     return (
       <div className="container-fluid">
         <div>
-          <div className="col-md-6">
-            <input type="text" ref="searchCityInput"/>
-            <button onClick={this.centerToAddress}>Find</button>
-            <button onClick={this.addMarker}>Add marker</button>
+          <div className="col-md-6" onKeyPress={this.centerToAddress}>
+            <input className="form-control" type="text" ref="searchCityInput"/>
+            <button className="btn btn-default" onClick={this.centerToAddress}>Find</button>
             <Code/>
           </div>
           <div className="col-md-6">
@@ -54,9 +70,9 @@ class App extends Component {
               initialCordinates={{lat: -34.397, lng: 150.644}}
               markers={this.state.markers}
               styles={{height: "500px"}}
+              updateLoadState={this.handleLoadUpdate}
             />
           </div>
-
         </div>
       </div>
     )

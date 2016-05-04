@@ -21,6 +21,10 @@ export default class Map extends Component {
       });
 
       this.state.loaded = true;
+      this.props.updateLoadState({
+        isLoaded: true,
+        map: this.state.map
+      });
       this.props.markers.forEach((obj)=>{
         this.state.markers.push(new google.maps.Marker({
           position: obj.position,
