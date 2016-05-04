@@ -1,7 +1,7 @@
 # Minimal React component for Google Maps
 ## ES6, React v15.01
-[![version](https://img.shields.io/npm/v/npm-install-loader.svg)](http://npm.im/react-minimal-google-maps)
-[![downloads](https://img.shields.io/npm/dm/npm-install-loader.svg)](http://npm-stat.com/charts.html?package=react-minimal-google-maps)
+[![npm version](https://img.shields.io/npm/v/react-minimal-google-maps.svg?style=flat)](https://www.npmjs.com/package/react-minimal-google-maps)
+[![npm](https://img.shields.io/npm/dm/react-minimal-google-maps.svg?maxAge=2592000)](https://www.npmjs.com/package/react-minimal-google-maps)
 [![MIT License](https://img.shields.io/npm/l/npm-install-loader.svg)](http://opensource.org/licenses/MIT)
 
 It enables to use all features of Google Maps API from parent component.
