@@ -1,4 +1,4 @@
-import { default as React, Component } from "react";
+import React, {Component } from "react";
 export default class Map extends Component {
   constructor(props, context) {
     super(props, context);
@@ -25,14 +25,7 @@ export default class Map extends Component {
         isLoaded: true,
         map: this.state.map
       });
-      this.props.markers.forEach((obj)=>{
-        this.state.markers.push(new google.maps.Marker({
-          position: obj.position,
-          map: this.state.map,
-          title: obj.title,
-          defaultAnimation: obj.defaultAnimation
-        }));
-      })
+      this.updateMarkers();
     };
     document.body.appendChild(this.state.script);
   }
@@ -41,6 +34,20 @@ export default class Map extends Component {
     this.load();
   }
 
+  updateMarkers(){
+    this.props.markers.forEach((obj)=>{
+      this.state.markers.push(new google.maps.Marker({
+        position: obj.position,
+        map: this.state.map,
+        title: obj.title,
+        defaultAnimation: obj.defaultAnimation
+      }));
+    })
+  }
+
+  componentDidUpdate() {
+    this.updateMarkers();
+  }
 
 
   render() {

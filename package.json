@@ -1,8 +1,8 @@
 {
   "name": "react-minimal-google-maps",
-  "version": "0.0.3",
+  "version": "0.0.42",
   "description": "React minimal google maps component",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "author": {
     "name": "@Kadash",
